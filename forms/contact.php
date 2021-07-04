@@ -23,7 +23,7 @@ $okMessage = 'Contact form successfully submitted. Thank you, I will get back to
 $errorMessage = 'There was an error while submitting the form. Please try again later';
 
 // ReCaptch Secret
-$recaptchaSecret = '6Lem-nIbAAAAAGmFgSgXCtNTyhA98Gk4GQ2ZHhYa';
+$recaptchaSecret = '6LflcXMbAAAAANmDMO2-SzSETcMRkEH2QiaYEiiA';
 
 // let's do the sending
 
@@ -42,7 +42,7 @@ try {
 
         // do not forget to enter your secret key from https://www.google.com/recaptcha/admin
         
-        $recaptcha = new \ReCaptcha\ReCaptcha(6Lem-nIbAAAAAGmFgSgXCtNTyhA98Gk4GQ2ZHhYa, new \ReCaptcha\RequestMethod\CurlPost());
+        $recaptcha = new \ReCaptcha\ReCaptcha($recaptchaSecret, new \ReCaptcha\RequestMethod\CurlPost());
         
         // we validate the ReCaptcha field together with the user's IP address
         
