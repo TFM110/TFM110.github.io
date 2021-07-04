@@ -12,7 +12,7 @@ $(function () {
 
     $('#contact-form').on('submit', function (e) {
         if (!e.isDefaultPrevented()) {
-            var url = "contact.php";
+            var url = "forms/contact.php";
 
             $.ajax({
                 type: "POST",
