@@ -42,7 +42,7 @@ try {
 
         // do not forget to enter your secret key from https://www.google.com/recaptcha/admin
         
-        $recaptcha = new \ReCaptcha\ReCaptcha($recaptchaSecret, new \ReCaptcha\RequestMethod\CurlPost());
+        $recaptcha = new \ReCaptcha\ReCaptcha(6Lem-nIbAAAAAGmFgSgXCtNTyhA98Gk4GQ2ZHhYa, new \ReCaptcha\RequestMethod\CurlPost());
         
         // we validate the ReCaptcha field together with the user's IP address
         
