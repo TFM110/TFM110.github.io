@@ -615,16 +615,14 @@
                 <div class="col-lg-6">
                     <div class="form-group">
                         <label for="form_name">Name *</label>
-                        <input id="form_name" type="text" name="name" class="form-control" placeholder="Please enter your Name *" required="required"
-                            data-error="Name is required.">
+                        <input id="form_name" type="text" name="name" class="form-control" placeholder="Please enter your Name *" required="required" data-error="Name is required.">
                         <div class="help-block with-errors"></div>
                     </div>
                 </div>
                 <div class="col-lg-6">
                     <div class="form-group">
                         <label for="form_email">Email *</label>
-                        <input id="form_email" type="email" name="email" class="form-control" placeholder="Please enter your email *" required="required"
-                            data-error="Valid email is required.">
+                        <input id="form_email" type="email" name="email" class="form-control" placeholder="Please enter your email *" required="required" data-error="Valid email is required.">
                         <div class="help-block with-errors"></div>
                     </div>
                 </div>
@@ -640,9 +638,11 @@
             </div>
             <div class="form-group">
                 <label for="form_message">Message *</label>
-                <textarea id="form_message" name="message" class="form-control" placeholder="Message for me *" rows="4" required="required" data-error="Please, leave us a message." style="height: 245px;"></textarea>
+                <textarea id="form_message" name="message" class="form-control" placeholder="Message for me *" rows="4" required="required" data-error="Please, leave us a message." style="height: 180px;"></textarea>
                 <div class="help-block with-errors"></div>
             </div>
+            <div class="g-recaptcha" data-sitekey="6LflcXMbAAAAAMKqj_oJQbG8bzxJckbleYSt6WiP"></div>
+            <br/>
             <div class="text-center"><button type="submit">Send Message</button></div>
             </form>
           </div>
@@ -690,6 +690,7 @@
   <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
   <script src="assets/js/main.js"></script>
+  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </body>
 
 </html>
