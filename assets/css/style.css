@@ -721,11 +721,24 @@ section {
   padding: 0 4px;
 }
 
-/* Create four equal columns that sits next to each other */
+/* Clear floats after image containers */
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+/* Create four equal columns that sits next to each other
 .work .column {
   flex: 25%;
   max-width: 25%;
   padding: 0 4px;
+} */
+
+.work .column {
+  float: left;
+  width: 25%;
+  padding: 5px;
 }
 
 .work .column img {
