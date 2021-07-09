@@ -499,13 +499,13 @@ section {
 }
 
 /*--------------------------------------------------------------
-# Portfolio
+# support-me
 --------------------------------------------------------------*/
-.portfolio .portfolio-item {
+.support-me .support-me-item {
   margin-bottom: 30px;
 }
 
-.portfolio #portfolio-flters {
+.support-me #support-me-flters {
   padding: 0;
   margin: 0 auto 35px auto;
   list-style: none;
@@ -515,7 +515,7 @@ section {
   padding: 2px 15px;
 }
 
-.portfolio #portfolio-flters li {
+.support-me #support-me-flters li {
   cursor: pointer;
   display: inline-block;
   padding: 10px 15px 8px 15px;
@@ -528,22 +528,22 @@ section {
   transition: all 0.3s ease-in-out;
 }
 
-.portfolio #portfolio-flters li:hover, .portfolio #portfolio-flters li.filter-active {
+.support-me #support-me-flters li:hover, .support-me #support-me-flters li.filter-active {
   color: #149ddd;
 }
 
-.portfolio #portfolio-flters li:last-child {
+.support-me #support-me-flters li:last-child {
   margin-right: 0;
 }
 
-.portfolio .portfolio-wrap {
+.support-me .support-me-wrap {
   transition: 0.3s;
   position: relative;
   overflow: hidden;
   z-index: 1;
 }
 
-.portfolio .portfolio-wrap::before {
+.support-me .support-me-wrap::before {
   content: "";
   background: rgba(255, 255, 255, 0.5);
   position: absolute;
@@ -556,7 +556,7 @@ section {
   opacity: 0;
 }
 
-.portfolio .portfolio-wrap .portfolio-links {
+.support-me .support-me-wrap .support-me-links {
   opacity: 1;
   left: 0;
   right: 0;
@@ -568,7 +568,7 @@ section {
   justify-content: center;
 }
 
-.portfolio .portfolio-wrap .portfolio-links a {
+.support-me .support-me-wrap .support-me-links a {
   color: #fff;
   font-size: 28px;
   text-align: center;
@@ -577,15 +577,15 @@ section {
   width: 50%;
 }
 
-.portfolio .portfolio-wrap .portfolio-links a:hover {
+.support-me .support-me-wrap .support-me-links a:hover {
   background: rgba(20, 157, 221, 0.95);
 }
 
-.portfolio .portfolio-wrap .portfolio-links a + a {
+.support-me .support-me-wrap .support-me-links a + a {
   border-left: 1px solid #37b3ed;
 }
 
-.portfolio .portfolio-wrap:hover::before {
+.support-me .support-me-wrap:hover::before {
   top: 0;
   left: 0;
   right: 0;
@@ -593,28 +593,40 @@ section {
   opacity: 1;
 }
 
-.portfolio .portfolio-wrap:hover .portfolio-links {
+.support-me .support-me-wrap:hover .support-me-links {
   opacity: 1;
   bottom: 0;
 }
 
 /*--------------------------------------------------------------
-# Portfolio Details
+# support-me Details
 --------------------------------------------------------------*/
-.portfolio-details {
+.support-me-details {
   padding-top: 40px;
 }
 
-.portfolio-details .portfolio-details-slider img {
+.support-me .column {
+  float: middle;
+  width: 50%;
+  padding: 5px;
+}
+
+.support-me .column embed {
+  margin-top: 8px;
+  vertical-align: middle;
   width: 100%;
 }
 
-.portfolio-details .portfolio-details-slider .swiper-pagination {
+.support-me-details .support-me-details-slider img {
+  width: 100%;
+}
+
+.support-me-details .support-me-details-slider .swiper-pagination {
   margin-top: 20px;
   position: relative;
 }
 
-.portfolio-details .portfolio-details-slider .swiper-pagination .swiper-pagination-bullet {
+.support-me-details .support-me-details-slider .swiper-pagination .swiper-pagination-bullet {
   width: 12px;
   height: 12px;
   background-color: #fff;
@@ -622,16 +634,16 @@ section {
   border: 1px solid #149ddd;
 }
 
-.portfolio-details .portfolio-details-slider .swiper-pagination .swiper-pagination-bullet-active {
+.support-me-details .support-me-details-slider .swiper-pagination .swiper-pagination-bullet-active {
   background-color: #149ddd;
 }
 
-.portfolio-details .portfolio-info {
+.support-me-details .support-me-info {
   padding: 30px;
   box-shadow: 0px 0 30px rgba(5, 13, 24, 0.08);
 }
 
-.portfolio-details .portfolio-info h3 {
+.support-me-details .support-me-info h3 {
   font-size: 22px;
   font-weight: 700;
   margin-bottom: 20px;
@@ -639,27 +651,27 @@ section {
   border-bottom: 1px solid #eee;
 }
 
-.portfolio-details .portfolio-info ul {
+.support-me-details .support-me-info ul {
   list-style: none;
   padding: 0;
   font-size: 15px;
 }
 
-.portfolio-details .portfolio-info ul li + li {
+.support-me-details .support-me-info ul li + li {
   margin-top: 10px;
 }
 
-.portfolio-details .portfolio-description {
+.support-me-details .support-me-description {
   padding-top: 30px;
 }
 
-.portfolio-details .portfolio-description h2 {
+.support-me-details .support-me-description h2 {
   font-size: 26px;
   font-weight: 700;
   margin-bottom: 20px;
 }
 
-.portfolio-details .portfolio-description p {
+.support-me-details .support-me-description p {
   padding: 0;
 }
 
