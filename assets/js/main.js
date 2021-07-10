@@ -18,6 +18,13 @@
       return document.querySelector(el)
     }
   }
+  load(img)
+  {
+    img.fadeOut(0, function() {
+      img.fadeIn(1000);
+    });
+  }
+  $('#you-want-lazyload').lazyload({load: load});
 
   /**
    * Easy event listener function
