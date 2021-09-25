@@ -783,6 +783,10 @@ section {
   background: #37b3ed;
 }
 
+.contact .home {}
+
+.contact .school {}
+
 body, .form-control {
   font-family: 'Lato', sans-serif;
 }
