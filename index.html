@@ -312,8 +312,8 @@
                 <h4>Call:</h4>
                 <p><a href="tel:240-708-2989">+1 240 708 2989</a></p>
               </div>
-              <iframe class="home" id="map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d107002.02009705313!2d-96.80666576270093!3d33.061386299301425!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x864c21da13c59513%3A0x62aa036489cd602b!2sPlano%2C%20TX!5e0!3m2!1sen!2sus!4v1632531199602!5m2!1sen!2sus" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>" width="100%" height="300px" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-              <iframe class="school" id="map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3483.0819284757936!2d-81.05229768510205!3d29.191714765303313!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88e6d96b3aec5b43%3A0x1754ef398af0ee12!2sEmbry%E2%80%93Riddle%20Aeronautical%20University!5e0!3m2!1sen!2sus!4v1632531130975!5m2!1sen!2sus" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>" width="100%" height="300px" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+              <iframe class="home" id="map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d107002.02009705313!2d-96.80666576270093!3d33.061386299301425!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x864c21da13c59513%3A0x62aa036489cd602b!2sPlano%2C%20TX!5e0!3m2!1sen!2sus!4v1632531199602!5m2!1sen!2sus" width="100%" height="300px" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+              <iframe class="school" id="map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3483.0819284757936!2d-81.05229768510205!3d29.191714765303313!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88e6d96b3aec5b43%3A0x1754ef398af0ee12!2sEmbry%E2%80%93Riddle%20Aeronautical%20University!5e0!3m2!1sen!2sus!4v1632531130975!5m2!1sen!2sus" width="100%" height="300px" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
             </div>
           </div>
 
@@ -391,13 +391,13 @@
     // Get element with class name "home"
     var home = document.getElementsByClassName("home");
     var school = document.getElementsByClassName("school");
-    if (currentMonth > 4 && currentMonth < 7) {
-      for (var i = 0; i < home.length; i++) {
-        home[i].style.display = "none";
-      }
-    } else {
+    if (currentMonth > 4 && currentMonth < 8) {
       for (var i = 0; i < school.length; i++) {
         school[i].style.display = "none";
+      }
+    } else {
+      for (var i = 0; i < home.length; i++) {
+        home[i].style.display = "none";
       }
     }
   </script>
