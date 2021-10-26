@@ -390,6 +390,7 @@
 
   <script>
     currentMonth = new Date().getMonth();
+    currentDay = new Date().getDate();
 
     // Get element with class name "home"
     var home = document.getElementsByClassName("home");
@@ -404,17 +405,21 @@
       }
     }
 
-    var dob = new Date("02/28/2003");  
-    //calculate month difference from current date in time  
-    var month_diff = Date.now() - dob.getTime();  
-    //convert the calculated difference in date format  
-    var age_dt = new Date(month_diff);   
-    //extract year from date      
-    var year = age_dt.getUTCFullYear();  
-    //now calculate the age of the user  
-    var age = Math.abs(year - 1970);  
-    //display the calculated age  
-    document.getElementById("dob").innerHTML = age;
+    var dob = new Date("2/28/2003");  
+    //calculate month difference from current date in time
+    var month_diff = Date.now() - dob.getTime();
+    //convert the calculated difference in date format
+    var age_dt = new Date(month_diff);
+    //extract year from date
+    var year = age_dt.getUTCFullYear();
+    //now calculate the age of the user
+    var age = Math.abs(year - 1970);
+    //display the calculated age
+    if (currentMonth === 1 && currentDay === 28) {
+      document.getElementById("dob").innerHTML = "Happy Birthday Tauseef! You are now " + age + " years old!";
+    } else {
+      document.getElementById("dob").innerHTML = age;
+    }
     </script>
 
   <!-- Vendor JS Files -->
