@@ -365,7 +365,7 @@ section {
 .resume .resume-item {
   padding: 0 0 20px 20px;
   margin-top: -2px;
-  border-left: 2px solid #1f5297;
+  border-top: 2px solid #1f5297;
   position: relative;
 }
 
@@ -393,7 +393,7 @@ section {
 }
 
 .resume .resume-item ul li {
-  padding-bottom: 10px;
+  padding-bottom: 5px;
 }
 
 .resume .resume-item:last-child {
@@ -406,8 +406,8 @@ section {
   width: 16px;
   height: 16px;
   border-radius: 50px;
-  left: -9px;
-  top: 0;
+  left: 0px;
+  top: -9px;
   background: #fff;
   border: 2px solid #1f5297;
 }
