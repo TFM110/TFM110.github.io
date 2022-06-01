@@ -99,6 +99,17 @@ h1, h2, h3, h4, h5, h6 {
   text-decoration: none;
 }
 
+#header .profile h2 {
+  font-size: 16px;
+  margin: 0;
+  padding: 0;
+  font-weight: 600;
+  -moz-text-align-last: center;
+  text-align-last: center;
+  font-family: "Poppins", sans-serif;
+  color: #fff;
+}
+
 #header .profile .social-links a {
   font-size: 18px;
   display: inline-block;
