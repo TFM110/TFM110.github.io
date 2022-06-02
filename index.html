@@ -46,7 +46,7 @@
       <div class="profile">
         <img src="assets/img/Tauseef Afraz Headshot.jpg" alt="" class="img-fluid rounded-circle">
         <h1 class="text-light"><a href="index.html">Tauseef Afraz</a></h1>
-        <h2>Date and Time is</br><span id="time"></span></h2>
+        <h2>Today's Date and Time is</br><span id="datetime"></span></h2>
         <div class="social-links mt-3 text-center">
           <a href="https://twitter.com/TFM220" class="twitter" target="_blank" rel="noopener noreferrer"><i class="bx bxl-twitter"></i></a>
           <a href="https://www.facebook.com/tauseef.afraz" insclass="facebook" target="_blank" rel="noopener noreferrer"><i class="bx bxl-facebook"></i></a>
@@ -385,18 +385,24 @@
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
   <script>
-    var datetime = new Date().toDateString();
-    console.log(datetime);
-    document.getElementById("time").textContent = datetime;
-    
-    function refreshTime() {
-    const timeDisplay = document.getElementById("time");
-    const dateString = new Date().toLocaleString();
-    const formattedString = dateString.replace(", ", " - ");
-    timeDisplay.textContent = formattedString;
+    function display_datetime() {
+    var x = new Date()
+    const week = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
+    let dayDisplay = week[x.getDay()];
+    const month = ["January","February","March","April","May","June","July","August","September","October","November","December"];
+    let monthDisplay = month[x.getMonth()];
+    let day = x.getDate();
+    let year = x.getFullYear();
+    let time = x.toLocaleTimeString();
+    datetimeDisplay = dayDisplay + ", " + monthDisplay + " " + day + ", " + year + "<br>" + time;
+    document.getElementById("datetime").innerHTML = datetimeDisplay;
+    display_dt();
     }
-    setInterval(refreshTime, 1000);
-
+    function display_dt(){
+    var refresh=1000; // Refresh rate in milli seconds
+    mytime=setTimeout('display_datetime()',refresh)
+    }
+    display_dt()
 
     currentMonth = new Date().getMonth();
     currentDay = new Date().getDate();
