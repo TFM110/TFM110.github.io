@@ -533,25 +533,25 @@ section {
 }
 
 /*--------------------------------------------------------------
-# Support-Me
+# Gallery
 --------------------------------------------------------------*/
-.support-me .column {
+.gallery .column {
   float: middle;
   width: 50%;
   padding: 5px;
 }
 
-.support-me .column embed {
+.gallery .column embed {
   margin-top: 8px;
   vertical-align: middle;
   width: 100%;
 }
 
-.support-me .support-me-item {
+.gallery .gallery-item {
   margin-bottom: 30px;
 }
 
-.support-me #support-me-flters {
+.gallery #gallery-flters {
   padding: 0;
   margin: 0 auto 35px auto;
   list-style: none;
@@ -561,7 +561,7 @@ section {
   padding: 2px 15px;
 }
 
-.support-me #support-me-flters li {
+.gallery #gallery-flters li {
   cursor: pointer;
   display: inline-block;
   padding: 10px 15px 8px 15px;
@@ -574,22 +574,22 @@ section {
   transition: all 0.3s ease-in-out;
 }
 
-.support-me #support-me-flters li:hover, .support-me #support-me-flters li.filter-active {
+.gallery #gallery-flters li:hover, .gallery #gallery-flters li.filter-active {
   color: #149ddd;
 }
 
-.support-me #support-me-flters li:last-child {
+.gallery #gallery-flters li:last-child {
   margin-right: 0;
 }
 
-.support-me .support-me-wrap {
+.gallery .gallery-wrap {
   transition: 0.3s;
   position: relative;
   overflow: hidden;
   z-index: 1;
 }
 
-.support-me .support-me-wrap::before {
+.gallery .gallery-wrap::before {
   content: "";
   background: rgba(255, 255, 255, 0.5);
   position: absolute;
@@ -602,7 +602,7 @@ section {
   opacity: 0;
 }
 
-.support-me .support-me-wrap .support-me-links {
+.gallery .gallery-wrap .gallery-links {
   opacity: 1;
   left: 0;
   right: 0;
@@ -614,7 +614,7 @@ section {
   justify-content: center;
 }
 
-.support-me .support-me-wrap .support-me-links a {
+.gallery .gallery-wrap .gallery-links a {
   color: #fff;
   font-size: 28px;
   text-align: center;
@@ -623,15 +623,15 @@ section {
   width: 50%;
 }
 
-.support-me .support-me-wrap .support-me-links a:hover {
+.gallery .gallery-wrap .gallery-links a:hover {
   background: rgba(20, 157, 221, 0.95);
 }
 
-.support-me .support-me-wrap .support-me-links a + a {
+.gallery .gallery-wrap .gallery-links a + a {
   border-left: 1px solid #37b3ed;
 }
 
-.support-me .support-me-wrap:hover::before {
+.gallery .gallery-wrap:hover::before {
   top: 0;
   left: 0;
   right: 0;
@@ -639,12 +639,12 @@ section {
   opacity: 1;
 }
 
-.support-me .support-me-wrap:hover .support-me-links {
+.gallery .gallery-wrap:hover .gallery-links {
   opacity: 1;
   bottom: 0;
 }
 
-.support-me .space { 
+.gallery .space { 
   margin: 15px;
 }
 
