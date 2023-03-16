@@ -263,7 +263,11 @@
           <h2>Gallery</h2>
           <p>Here is a photo album of me in action</p>
         </div>
-        
+        <img src="assets/img/gallery/20230302_170128.jpg">
+        <img src="assets/img/gallery/FIT-Belton-110355.jpg">
+        <img src="assets/img/gallery/FIT-Belton-110361.jpg">
+        <img src="assets/img/gallery/FIT-Belton-3100344.jpg">
+        <img src="assets/img/gallery/FIT-Belton-3100348.jpg">
       </div>
     </section>
     <!-- End Gallery Section -->
@@ -420,6 +424,17 @@
     } else {
       document.getElementById("dob").innerHTML = age;
     }
+
+    $(document).ready(function() {
+    setInterval(function() {
+      $('#slideshow > img:first')
+        .fadeOut(1000)
+        .next()
+        .fadeIn(1000)
+        .end()
+        .appendTo('#slideshow');
+    }, 3000);
+  });
   </script>
 
   <!-- Vendor JS Files -->
@@ -434,7 +449,7 @@
 
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
-  <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
   <script src="https://www.google.com/recaptcha/api.js" async defer></script>
   <script src="https://kit.fontawesome.com/d6f3a0a128.js" crossorigin="anonymous"></script>

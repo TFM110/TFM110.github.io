@@ -535,6 +535,19 @@ section {
 /*--------------------------------------------------------------
 # Gallery
 --------------------------------------------------------------*/
+.gallery {
+  position: relative;
+  height: 400px;
+}
+.gallery img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
 .gallery .column {
   float: middle;
   width: 50%;
