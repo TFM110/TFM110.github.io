@@ -536,132 +536,26 @@ section {
 # Gallery
 --------------------------------------------------------------*/
 .gallery {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
+  display: flex;
+  overflow-x: scroll; /* set overflow-x to scroll to enable horizontal scrolling */
+  scroll-behavior: smooth; /* enable smooth scrolling */
+  width: 100%; /* set the width of the container to 100% */
 }
 
 .gallery img {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+  height: 100%; /* set the height of the images to 100% to fill the container vertically */
+  object-fit: contain; /* use object-fit to make the images fit inside the container */
+  max-width: none; /* unset the max-width property */
+  width: auto; /* set the width to auto to maintain the aspect ratio of the images */
 }
 
-.gallery .column {
-  float: middle;
-  width: 50%;
-  padding: 5px;
-}
-
-.gallery .column embed {
-  margin-top: 8px;
-  vertical-align: middle;
-  width: 100%;
-}
-
-.gallery .gallery-item {
-  margin-bottom: 30px;
-}
-
-.gallery #gallery-flters {
-  padding: 0;
-  margin: 0 auto 35px auto;
-  list-style: none;
-  text-align: center;
-  background: #fff;
-  border-radius: 50px;
-  padding: 2px 15px;
-}
-
-.gallery #gallery-flters li {
-  cursor: pointer;
-  display: inline-block;
-  padding: 10px 15px 8px 15px;
-  font-size: 14px;
-  font-weight: 600;
-  line-height: 1;
-  text-transform: uppercase;
-  color: #272829;
-  margin-bottom: 5px;
-  transition: all 0.3s ease-in-out;
-}
-
-.gallery #gallery-flters li:hover, .gallery #gallery-flters li.filter-active {
-  color: #149ddd;
-}
-
-.gallery #gallery-flters li:last-child {
-  margin-right: 0;
-}
-
-.gallery .gallery-wrap {
-  transition: 0.3s;
-  position: relative;
-  overflow: hidden;
-  z-index: 1;
-}
-
-.gallery .gallery-wrap::before {
-  content: "";
-  background: rgba(255, 255, 255, 0.5);
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0;
-  transition: all ease-in-out 0.3s;
-  z-index: 2;
-  opacity: 0;
-}
-
-.gallery .gallery-wrap .gallery-links {
-  opacity: 1;
-  left: 0;
-  right: 0;
-  bottom: -60px;
-  z-index: 3;
-  position: absolute;
-  transition: all ease-in-out 0.3s;
-  display: flex;
-  justify-content: center;
-}
-
-.gallery .gallery-wrap .gallery-links a {
-  color: #fff;
-  font-size: 28px;
-  text-align: center;
-  background: rgba(20, 157, 221, 0.75);
-  transition: 0.3s;
-  width: 50%;
-}
-
-.gallery .gallery-wrap .gallery-links a:hover {
-  background: rgba(20, 157, 221, 0.95);
-}
-
-.gallery .gallery-wrap .gallery-links a + a {
-  border-left: 1px solid #37b3ed;
-}
-
-.gallery .gallery-wrap:hover::before {
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  opacity: 1;
-}
-
-.gallery .gallery-wrap:hover .gallery-links {
-  opacity: 1;
-  bottom: 0;
-}
-
-.gallery .space { 
-  margin: 15px;
+@keyframes gallery-scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(-100% + 100vw)); /* move the container by the width of the viewport minus the width of the container to the left */
+  }
 }
 
 /*--------------------------------------------------------------

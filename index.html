@@ -258,17 +258,19 @@
 
     <!-- ======= Gallery Section ======= -->
     <section id="gallery" class="gallery">
-      <div class="container">
+      <!-- <div class="container">
         <div class="section-title">
           <h2>Gallery</h2>
           <p>Here is a photo album of me in action</p>
-        </div class="gallery">
-        <img id="gallery-image" src="assets/img/gallery/20230302_170128.jpg">
-        <img id="gallery-image" src="assets/img/gallery/FIT-Belton-110355.jpg">
-        <img id="gallery-image" src="assets/img/gallery/FIT-Belton-110361.jpg">
-        <img id="gallery-image" src="assets/img/gallery/FIT-Belton-3100344.jpg">
-        <img id="gallery-image" src="assets/img/gallery/FIT-Belton-3100348.jpg">
-      </div>
+        </div>
+        <div class="gallery">
+          <img src="assets/img/gallery/20230302_170128.jpg" alt="Waco Crew">
+          <img src="assets/img/gallery/FIT-Belton-110355.jpg" alt="Belton CSA and RI Pic">
+          <img src="assets/img/gallery/FIT-Belton-110361.jpg" alt="Belton CSA and RI Pic 2">
+          <img src="assets/img/gallery/FIT-Belton-3100344.jpg" alt="Me">
+          <img src="assets/img/gallery/FIT-Belton-3100348.jpg" alt="Belton Crew">
+        </div>
+      </div> -->
     </section>
     <!-- End Gallery Section -->
 
@@ -424,15 +426,6 @@
     } else {
       document.getElementById("dob").innerHTML = age;
     }
-
-    var index = 1;
-    setInterval(function() {
-      document.getElementById("gallery-image").src = "images/" + index + ".jpg";
-      index++;
-      if (index > 4) {
-        index = 1;
-      }
-    }, 5000);
   </script>
 
   <!-- Vendor JS Files -->
