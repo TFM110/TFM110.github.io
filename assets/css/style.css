@@ -616,7 +616,7 @@ section {
 /* Six columns side by side */
 .column {
   float: left;
-  width: 11.11111111111111%;
+  width: calc(100% / 10);
 }
 
 /* Add a transparency effect for thumnbail images */
