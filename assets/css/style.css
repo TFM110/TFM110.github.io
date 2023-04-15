@@ -373,13 +373,6 @@ section {
   color: #050d18;
 }
 
-.resume .resume-item {
-  padding: 0 0 20px 20px;
-  margin-top: -2px;
-  border-top: 2px solid #1f5297;
-  position: relative;
-}
-
 .resume h4 {
   line-height: 18px;
   font-size: 18px;
@@ -388,6 +381,13 @@ section {
   font-family: "Poppins", sans-serif;
   color: #050d18;
   margin-bottom: 10px;
+}
+
+.resume .resume-item {
+  padding: 0 0 20px 20px;
+  margin-top: -2px;
+  border-top: 2px solid #1f5297;
+  position: relative;
 }
 
 .resume .resume-item h5 {
