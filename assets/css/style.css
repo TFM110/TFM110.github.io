@@ -645,7 +645,7 @@ section {
 }
 
 .work .column {
-  float: left;
+  float: right;
   width: 25%;
   padding: 5px;
 }
