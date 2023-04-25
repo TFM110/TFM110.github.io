@@ -1,6 +1,7 @@
 /**
-* Template Name: iPortfolio - v3.7.0
-* Template URL: https://bootstrapmade.com/iportfolio-bootstrap-portfolio-websites-template/
+* Template Name: MyResume
+* Updated: Mar 10 2023 with Bootstrap v5.2.3
+* Template URL: https://bootstrapmade.com/free-html-bootstrap-template-my-resume/
 * Author: BootstrapMade.com
 * License: https://bootstrapmade.com/license/
 */
@@ -126,7 +127,17 @@
   });
 
   /**
-   * Home type effect
+   * Preloader
+   */
+  let preloader = select('#preloader');
+  if (preloader) {
+    window.addEventListener('load', () => {
+      preloader.remove()
+    });
+  }
+
+  /**
+   * home type effect
    */
   const typed = select('.typed')
   if (typed) {
@@ -134,7 +145,7 @@
     typed_strings = typed_strings.split(',')
     new Typed('.typed', {
       strings: typed_strings,
-      loop: false,
+      loop: true,
       typeSpeed: 100,
       backSpeed: 50,
       backDelay: 2000
@@ -196,6 +207,15 @@
   });
 
   /**
+   * Initiate portfolio details lightbox 
+   */
+  const portfolioDetailsLightbox = GLightbox({
+    selector: '.portfolio-details-lightbox',
+    width: '90%',
+    height: '90vh'
+  });
+
+  /**
    * Portfolio details slider
    */
   new Swiper('.portfolio-details-slider', {
@@ -227,17 +247,6 @@
       el: '.swiper-pagination',
       type: 'bullets',
       clickable: true
-    },
-    breakpoints: {
-      320: {
-        slidesPerView: 1,
-        spaceBetween: 20
-      },
-
-      1200: {
-        slidesPerView: 3,
-        spaceBetween: 20
-      }
     }
   });
 
@@ -252,10 +261,10 @@
       mirror: false
     })
   });
-  window.onload = function() { 
-    var el = document.getElementById('g-recaptcha-response'); 
-    if (el) { 
-      el.setAttribute('required', 'required'); 
-    } 
-  }
+
+  /**
+   * Initiate Pure Counter 
+   */
+  new PureCounter();
+
 })()
