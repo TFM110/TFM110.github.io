@@ -424,8 +424,7 @@ section {
   margin-bottom: 0;
 }
 
-.about .dob {
-}
+.about .dob {}
 
 /*--------------------------------------------------------------
 # Resume
@@ -838,11 +837,9 @@ section {
   color: #fff;
 }
 
-.contact .home {
-}
+.contact .home {}
 
-.contact .school {
-}
+.contact .school {}
 
 .contact .email-form {
   width: 100%;
