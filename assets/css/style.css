@@ -265,7 +265,7 @@ h1, h2, h3, h4, h5, h6 {
 #home {
   width: 100%;
   height: 100vh;
-  background: url("../img/Tauseef Hyperion.jpg") top right no-repeat;
+  background: url("../img/Tauseef Hyperion.jpg") center no-repeat;
   background-size: cover;
   position: relative;
 }
@@ -278,7 +278,7 @@ h1, h2, h3, h4, h5, h6 {
 
 #home:before {
   content: "";
-  background: rgba(255, 255, 255, 0.8);
+  background: rgba(255, 255, 255, 0.4);
   position: absolute;
   bottom: 0;
   top: 0;
