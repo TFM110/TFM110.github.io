@@ -691,6 +691,22 @@ section {
   }
 }
 
+/* Without Container */
+.work .zoom-without-container{
+  transition: transform .2s; /* Animation */
+  margin: 0 auto;
+}
+.work .zoom-without-container img{
+  width:100%;
+ 	height:auto;	
+}
+.work .transform1:hover {
+  transform: scale(2.5); 
+}
+.work .transform2:hover {
+  transform: scale(1.5); 
+}
+
 /*--------------------------------------------------------------
 # Gallery
 --------------------------------------------------------------*/
