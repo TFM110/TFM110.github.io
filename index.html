@@ -492,17 +492,21 @@
             <form class="email-form" id="contact-form">
               <div class="row">
                 <div class="col-md-6 form-group">
-                  <input type="text" name="name" class="form-control" id="name" placeholder="Please enter your Name *" required data-error="Name is required.">
+                  <label for="name">Name:</label>
+                  <input type="text" id="name" name="name" placeholder="Please enter your Name *" required data-error="Name is required."/>
                 </div>
                 <div class="col-md-6 form-group mt-3 mt-md-0">
-                  <input type="email" class="form-control" name="email" id="email" placeholder="Please enter your email *" required data-error="Valid email is required.">
+                  <label for="email">Email:</label>
+                  <input type="text" id="email" name="email" placeholder="Please enter your Email *" required data-error="Email is required."/>
                 </div>
               </div>
               <div class="form-group mt-3">
-                <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject *" required>
+                <label for="subject">Subject:</label>
+                <input type="text" id="subject" name="subject" placeholder="Subject *" required/>
               </div>
               <div class="form-group mt-3">
-                <textarea class="form-control" name="message" rows="5" placeholder="Message" required></textarea>
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" rows="5" placeholder="Message" required></textarea>
               </div>
               <div class="my-3">
                 <div class="loading">Loading</div>
