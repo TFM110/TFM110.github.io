@@ -489,7 +489,7 @@
 
           <div class="col-lg-8 mt-5 mt-lg-0">
 
-            <form class="email-form">
+            <form class="email-form" id="contact-form">
               <div class="row">
                 <div class="col-md-6 form-group">
                   <input type="text" name="name" class="form-control" id="name" placeholder="Please enter your Name *" required data-error="Name is required.">
@@ -641,7 +641,7 @@
       'https://script.google.com/macros/s/AKfycbwlngigPlGbBJXTiVBcezbPsRdHQGXBiJD1x6eA_Awkmei1qNnxRlyKtL-AKLVLmbV4/exec';
 
     document
-      .getElementsByClassName('email-form')
+      .getElementById('contact-form')
       .addEventListener('submit', function (event) {
         event.preventDefault();
 
