@@ -489,7 +489,7 @@
 
           <div class="col-lg-8 mt-5 mt-lg-0">
 
-            <form action="https://formspree.io/f/mknkzlqw" method="post" role="form" class="email-form">
+            <form class="email-form">
               <div class="row">
                 <div class="col-md-6 form-group">
                   <input type="text" name="name" class="form-control" id="name" placeholder="Please enter your Name *" required data-error="Name is required.">
@@ -636,6 +636,32 @@
       dots[slideIndex-1].className += " active";
       captionText.innerHTML = dots[slideIndex-1].alt;
     } 
+
+    const url =
+      'https://script.google.com/macros/s/AKfycbwlngigPlGbBJXTiVBcezbPsRdHQGXBiJD1x6eA_Awkmei1qNnxRlyKtL-AKLVLmbV4/exec';
+
+    document
+      .getElementsByClassName('email-form')
+      .addEventListener('submit', function (event) {
+        event.preventDefault();
+
+        const formData = new FormData(this);
+        const data = Object.fromEntries(formData);
+
+        fetch(url, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'text/plain;charset=utf-8',
+          },
+          body: JSON.stringify(data),
+        })
+        .then((res) => res.json())
+        .then((data) => {
+          console.log('Successful', data);
+          this.reset();
+        })
+        .catch((err) => console.log('err', err));
+      });
 
   </script>
 
