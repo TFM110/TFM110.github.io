@@ -23,8 +23,8 @@
   <link href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" rel="stylesheet">
 
-  <!-- Template Main CSS File -->
-  <link href="assets/css/style.css" rel="stylesheet">
+    <!-- Template Main CSS File -->
+    <link href="assets/css/style.css" rel="stylesheet">
 
   <!-- =======================================================
   * Template Name: MyResume
@@ -559,23 +559,26 @@
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
   <script>
+    /**
+    * Auto Location and Display time
+    */
     function display_datetime() {
-    var x = new Date()
-    const week = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
-    let dayDisplay = week[x.getDay()];
-    const month = ["January","February","March","April","May","June","July","August","September","October","November","December"];
-    let monthDisplay = month[x.getMonth()];
-    let day = x.getDate();
-    let year = x.getFullYear();
-    let time = x.toLocaleTimeString();
-    var zone = new Date().toLocaleTimeString('en-us',{timeZoneName:'short'}).split(' ')[2]
-    datetimeDisplay = dayDisplay + ", " + monthDisplay + " " + day + ", " + year + "<br>" + time + " " + zone
-    document.getElementById("datetime").innerHTML = datetimeDisplay;
-    display_dt();
+      var x = new Date()
+      const week = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
+      let dayDisplay = week[x.getDay()];
+      const month = ["January","February","March","April","May","June","July","August","September","October","November","December"];
+      let monthDisplay = month[x.getMonth()];
+      let day = x.getDate();
+      let year = x.getFullYear();
+      let time = x.toLocaleTimeString();
+      var zone = new Date().toLocaleTimeString('en-us',{timeZoneName:'short'}).split(' ')[2]
+      datetimeDisplay = dayDisplay + ", " + monthDisplay + " " + day + ", " + year + "<br>" + time + " " + zone
+      document.getElementById("datetime").innerHTML = datetimeDisplay;
+      display_dt();
     }
     function display_dt(){
-    var refresh=1000; // Refresh rate in milli seconds
-    mytime=setTimeout('display_datetime()',refresh)
+      var refresh=1000; // Refresh rate in milli seconds
+      mytime=setTimeout('display_datetime()',refresh)
     }
     display_dt()
 
@@ -611,6 +614,9 @@
       document.getElementById("dob").innerHTML = age;
     }
 
+    /**
+    * Gallery 
+    */
     let slideIndex = 1;
     showSlides(slideIndex);
 
@@ -642,6 +648,9 @@
       captionText.innerHTML = dots[slideIndex-1].alt;
     } 
 
+    /**
+    * Contact Form 
+    */
     const url = 'https://script.google.com/macros/s/AKfycbyAQDr_PwlWDI_6sGqiTNkdc0T4BX8AWeLmCOtf3Iv-f9WlYh4m2XodInEuF42yutvcBQ/exec';
     const contactForm = document.getElementById('contact-form');
     const loadingMessage = document.querySelector('.loading');
