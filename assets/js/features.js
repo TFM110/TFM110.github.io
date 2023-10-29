@@ -14,16 +14,16 @@ function display_datetime() {
     datetimeDisplay = dayDisplay + ", " + monthDisplay + " " + day + ", " + year + "<br>" + time + " " + zone;
     document.getElementById("datetime").innerHTML = datetimeDisplay;
     display_dt();
-  }
+}
   
 function display_dt() {
     var refresh = 1000; // Refresh rate in milliseconds
     mytime = setTimeout(display_datetime, refresh);
 }
   
-  display_dt();
+display_dt();
   
-  function hideElementsBasedOnDate() {
+function hideElementsBasedOnDate() {
     currentMonth = new Date().getMonth();
     currentDay = new Date().getDate();
   
@@ -49,56 +49,56 @@ function display_dt() {
     } else {
       document.getElementById("dob").innerHTML = age;
     }
-  }
+}
   
-  hideElementsBasedOnDate();
+hideElementsBasedOnDate();
   
   /**
    * Gallery
    */
-  let slideIndex = 1;
-  showSlides(slideIndex);
+let slideIndex = 1;
+showSlides(slideIndex);
   
-  function plusSlides(n) {
+function plusSlides(n) {
     showSlides(slideIndex += n);
-  }
+}
   
-  function currentSlide(n) {
+function currentSlide(n) {
     showSlides(slideIndex = n);
-  }
+}
   
-  function showSlides(n) {
+function showSlides(n) {
     let i;
     let slides = document.getElementsByClassName("mySlides");
     let dots = document.getElementsByClassName("demo");
     let captionText = document.getElementById("caption");
     if (n > slides.length) {
-      slideIndex = 1;
+        slideIndex = 1;
     }
     if (n < 1) {
-      slideIndex = slides.length;
+        slideIndex = slides.length;
     }
     for (i = 0; i < slides.length; i++) {
-      slides[i].style.display = "none";
+        slides[i].style.display = "none";
     }
     for (i = 0; i < dots.length; i++) {
-      dots[i].className = dots[i].className.replace(" active", "");
+        dots[i].className = dots[i].className.replace(" active", "");
     }
     slides[slideIndex - 1].style.display = "block";
     dots[slideIndex - 1].className += " active";
     captionText.innerHTML = dots[slideIndex - 1].alt;
-  }
+}
   
   /**
    * Contact Form
    */
-  const url = 'https://script.google.com/macros/s/AKfycbyAQDr_PwlWDI_6sGqiTNkdc0T4BX8AWeLmCOtf3Iv-f9WlYh4m2XodInEuF42yutvcBQ/exec';
-  const contactForm = document.getElementById('contact-form');
-  const loadingMessage = document.querySelector('.loading');
-  const errorMessage = document.querySelector('.error-message');
-  const sentMessage = document.querySelector('.sent-message');
+const url = 'https://script.google.com/macros/s/AKfycbyAQDr_PwlWDI_6sGqiTNkdc0T4BX8AWeLmCOtf3Iv-f9WlYh4m2XodInEuF42yutvcBQ/exec';
+const contactForm = document.getElementById('contact-form');
+const loadingMessage = document.querySelector('.loading');
+const errorMessage = document.querySelector('.error-message');
+const sentMessage = document.querySelector('.sent-message');
   
-  contactForm.addEventListener('submit', function (event) {
+contactForm.addEventListener('submit', function (event) {
     event.preventDefault();
   
     loadingMessage.style.display = 'block'; // Show loading message
@@ -107,26 +107,25 @@ function display_dt() {
     const data = Object.fromEntries(formData);
   
     fetch(url, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'text/plain;charset=utf-8',
-      },
-      body: JSON.stringify(data),
+        method: 'POST',
+        headers: {
+            'Content-Type': 'text/plain;charset=utf-8',
+        },
+        body: JSON.stringify(data),
     })
-      .then((res) => res.json())
-      .then((data) => {
+    .then((res) => res.json())
+    .then((data) => {
         console.log('Successful', data);
         this.reset();
         loadingMessage.style.display = 'none'; // Hide loading message
         sentMessage.style.display = 'block'; // Show success message
         setTimeout(function () {
-          sentMessage.style.display = 'none'; // Hide success message after a few seconds
+            sentMessage.style.display = 'none'; // Hide success message after a few seconds
         }, 5000);
-      })
-      .catch((err) => {
+    })
+    .catch((err) => {
         console.log('err', err);
         loadingMessage.style.display = 'none'; // Hide loading message
         errorMessage.style.display = 'block'; // Show error message
-      });
-  });
-  
+    });
+});
