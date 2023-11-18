@@ -135,19 +135,28 @@
       setTimeout(() => {
         preloader.remove();
 
-        /**
-        * home type effect
-        */
         const typed = select('.typed');
         if (typed) {
           let typed_strings = typed.getAttribute('data-typed-items');
           typed_strings = typed_strings.split(',');
-          new Typed('.typed', {
+
+          // Add class to body while typing is in progress
+          document.body.classList.add('typing-in-progress');
+
+          const typedInstance = new Typed('.typed', {
             strings: typed_strings,
-            loop: false,
             typeSpeed: 75,
-            backSpeed: 50,
+            backSpeed: 40,
             backDelay: 1500,
+            onComplete: function (self) {
+              // Remove class when typing is complete
+              document.body.classList.remove('typing-in-progress');
+              // Add class to indicate typing is complete
+              document.body.classList.add('typing-complete');
+
+              // Enable looping after the first round
+              self.loop = true;
+            },
           });
         }
       }, 750); // Adjust the delay time (in milliseconds) as needed

@@ -12,6 +12,11 @@
 body {
   font-family: "Open Sans", sans-serif;
   color: #272829;
+  overflow: hidden;
+}
+
+body.typing-complete {
+  overflow: visible;
 }
 
 a {
@@ -256,6 +261,18 @@ h1, h2, h3, h4, h5, h6 {
 .mobile-nav-active .mobile-nav-toggle {
   color: #fff;
   background-color: #0563bb;
+}
+
+#navbar.nav-menu {
+  /* Add styling for the navbar when typing is in progress */
+  /* For example, you can make it semi-transparent or change colors */
+  opacity: 0.7;
+  pointer-events: none; /* Disable pointer events on the navbar */
+}
+
+body.typing-complete #navbar.nav-menu {
+  opacity: 1; /* Restore opacity when typing is complete */
+  pointer-events: auto; /* Enable pointer events on the navbar */
 }
 
 /*--------------------------------------------------------------
