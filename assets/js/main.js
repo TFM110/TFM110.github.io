@@ -127,30 +127,33 @@
   });
 
   /**
-   * Preloader
-   */
-  let preloader = select('#preloader');
-  if (preloader) {
-    window.addEventListener('load', () => {
-      preloader.remove()
-    });
-  }
+ * Preloader
+ */
+let preloader = select('#preloader');
+if (preloader) {
+  window.addEventListener('load', () => {
+    setTimeout(() => {
+      preloader.remove();
 
-  /**
-   * home type effect
-   */
-  const typed = select('.typed')
-  if (typed) {
-    let typed_strings = typed.getAttribute('data-typed-items')
-    typed_strings = typed_strings.split(',')
-    new Typed('.typed', {
-      strings: typed_strings,
-      loop: false,
-      typeSpeed: 100,
-      backSpeed: 50,
-      backDelay: 2000
-    });
-  }
+      /**
+       * home type effect
+       */
+      const typed = select('.typed');
+      if (typed) {
+        let typed_strings = typed.getAttribute('data-typed-items');
+        typed_strings = typed_strings.split(',');
+        new Typed('.typed', {
+          strings: typed_strings,
+          loop: false,
+          typeSpeed: 100,
+          backSpeed: 50,
+          backDelay: 2000,
+        });
+      }
+    }, 750); // Adjust the delay time (in milliseconds) as needed
+  });
+}
+
 
   /**
    * Skills animation
