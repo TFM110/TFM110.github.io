@@ -160,7 +160,7 @@ h1, h2, h3, h4, h5, h6 {
 .nav-menu a:focus {
   display: flex;
   align-items: center;
-  color: #45505b;
+  color: #333333;
   padding: 10px 18px;
   margin-bottom: 8px;
   transition: 0.3s;
@@ -181,7 +181,7 @@ h1, h2, h3, h4, h5, h6 {
 .nav-menu a span,
 .nav-menu a:focus span {
   padding: 0 5px 0 7px;
-  color: #45505b;
+  color: #333333;
 }
 
 @media (min-width: 992px) {
@@ -242,7 +242,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .mobile-nav-toggle i {
-  color: #45505b;
+  color: #333333;
 }
 
 .mobile-nav-active {
@@ -277,7 +277,7 @@ h1, h2, h3, h4, h5, h6 {
 
 #home:before {
   content: "";
-  background: rgba(255, 255, 255, 0.4);
+  background: rgba(255, 255, 255, 0.5);
   position: absolute;
   bottom: 0;
   top: 0;
@@ -290,11 +290,11 @@ h1, h2, h3, h4, h5, h6 {
   font-size: 64px;
   font-weight: 700;
   line-height: 56px;
-  color: #45505b;
+  color: #333333;
 }
 
 #home p {
-  color: #45505b;
+  color: #333333;
   margin: 15px 0 0 0;
   font-size: 26px;
   font-family: "Poppins", sans-serif;
@@ -312,7 +312,7 @@ h1, h2, h3, h4, h5, h6 {
 #home .social-links a {
   font-size: 24px;
   display: inline-block;
-  color: #45505b;
+  color: #333333;
   line-height: 1;
   margin-right: 20px;
   transition: 0.3s;
@@ -359,7 +359,7 @@ section {
   margin-bottom: 20px;
   padding-bottom: 20px;
   position: relative;
-  color: #45505b;
+  color: #333333;
 }
 
 .section-title h2::before {
@@ -394,7 +394,7 @@ section {
 .about .content h3 {
   font-weight: 700;
   font-size: 26px;
-  color: #728394;
+  color: #45505b;
 }
 
 .about .content ul {
@@ -433,7 +433,7 @@ section {
   font-weight: 700;
   margin-top: 20px;
   margin-bottom: 20px;
-  color: #45505b;
+  color: #333333;
 }
 
 .resume .resume-item {
@@ -592,12 +592,12 @@ section {
 
 .work .work-wrap .work-info h4 {
   font-size: 20px;
-  color: #45505b;
+  color: #333333;
   font-weight: 600;
 }
 
 .work .work-wrap .work-info p {
-  color: #45505b;
+  color: #333333;
   font-size: 14px;
   text-transform: uppercase;
   padding: 0;
@@ -610,7 +610,7 @@ section {
 }
 
 .work .work-wrap .work-links a {
-  color: #45505b;
+  color: #333333;
   margin: 0 2px;
   font-size: 28px;
   display: inline-block;
@@ -830,14 +830,14 @@ section {
   font-size: 22px;
   font-weight: 600;
   margin-bottom: 5px;
-  color: #45505b;
+  color: #333333;
 }
 
 .contact .info p {
   padding: 0 0 0 60px;
   margin-bottom: 0;
   font-size: 14px;
-  color: #728394;
+  color: #45505b;
 }
 
 .contact .info .email,
@@ -949,7 +949,7 @@ section {
 --------------------------------------------------------------*/
 #footer {
   background: #f7f8f9;
-  color: #45505b;
+  color: #333333;
   font-size: 14px;
   text-align: center;
   padding: 30px 0;
@@ -957,7 +957,7 @@ section {
 
 #footer h3 {
   font-size: 36px;
-  font-weight: 700;
+  font-weight: 525;
   position: relative;
   font-family: "Poppins", sans-serif;
   padding: 0;
