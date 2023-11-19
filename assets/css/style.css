@@ -356,6 +356,22 @@ body.typing-complete #navbar.nav-menu {
   }
 }
 
+.notification {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #3498db;
+  color: #fff;
+  text-align: center;
+  padding: 10px;
+  font-size: 18px;
+  z-index: 9999;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+
 /*--------------------------------------------------------------
 # Sections General
 --------------------------------------------------------------*/

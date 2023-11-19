@@ -119,13 +119,17 @@
    * Scroll with ofset on page load with hash links in the url
    */
   window.addEventListener('load', () => {
+    // Scroll to the top of the page on load
+    window.scrollTo(0, 0);
     if (window.location.hash) {
       if (select(window.location.hash)) {
         scrollto(window.location.hash)
       }
     }
   });
-
+        /**
+        * home type effect
+        */
   /**
   * Preloader
   */
@@ -143,6 +147,8 @@
           // Add class to body while typing is in progress
           document.body.classList.add('typing-in-progress');
 
+          let notificationShown = false;
+
           const typedInstance = new Typed('.typed', {
             strings: typed_strings,
             typeSpeed: 75,
@@ -156,6 +162,15 @@
 
               // Enable looping after the first round
               self.loop = true;
+
+              // Show the notification only once
+              if (!notificationShown) {
+                showNotification();
+                notificationShown = true;
+              }
+
+              // Add event listener for scrolling to hide the notification
+              window.addEventListener('scroll', hideNotification);
             },
           });
         }
@@ -163,6 +178,27 @@
     });
   }
 
+  function showNotification() {
+    const notification = select('#notification');
+    if (notification) {
+      notification.style.display = 'block';
+      setTimeout(() => {
+        notification.style.opacity = '1';
+      }, 100);
+    }
+  }
+
+  function hideNotification() {
+    const notification = select('#notification');
+    if (notification && window.scrollY > 0) {
+      notification.style.opacity = '0';
+      setTimeout(() => {
+        notification.style.display = 'none';
+      }, 500);
+      // Remove the scroll event listener once the notification is hidden
+      window.removeEventListener('scroll', hideNotification);
+    }
+  }
 
   /**
    * Skills animation
