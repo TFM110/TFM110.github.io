@@ -53,9 +53,9 @@ function hideElementsBasedOnDate() {
   
 hideElementsBasedOnDate();
   
-  /**
-   * Gallery
-   */
+/**
+ * Gallery
+ */
 let slideIndex = 1;
 showSlides(slideIndex);
   
@@ -89,9 +89,9 @@ function showSlides(n) {
     captionText.innerHTML = dots[slideIndex - 1].alt;
 }
   
-  /**
-   * Contact Form
-   */
+/**
+ * Contact Form
+ */
 const url = 'https://script.google.com/macros/s/AKfycbyAQDr_PwlWDI_6sGqiTNkdc0T4BX8AWeLmCOtf3Iv-f9WlYh4m2XodInEuF42yutvcBQ/exec';
 const contactForm = document.getElementById('contact-form');
 const loadingMessage = document.querySelector('.loading');
