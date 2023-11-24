@@ -340,15 +340,15 @@ body.typing-complete #navbar.nav-menu {
 }
 
 #home .social-links a.facebook:hover i {
-  color: #3b5998;
+  color: #4267b2;
 }
 
 #home .social-links a.instagram:hover i {
-  color: #c32aa3;
+  color: #e1306c;
 }
 
 #home .social-links a.linkedin:hover i {
-  color: #0077b5;
+  color: #0075b5;
 }
 
 #home .social-links a.youtube:hover i {
@@ -1126,21 +1126,21 @@ section {
 #footer .social-links .facebook:hover,
 #footer .social-links .facebook:hover .tooltip,
 #footer .social-links .facebook:hover .tooltip::before {
-  background: #3b5998;
+  background: #4267b2;
   color: #fff;
 }
 
 #footer .social-links .instagram:hover,
 #footer .social-links .instagram:hover .tooltip,
 #footer .social-links .instagram:hover .tooltip::before {
-  background: #c32aa3;
+  background: #e1306c;
   color: #fff;
 }
 
 #footer .social-links .linkedin:hover,
 #footer .social-links .linkedin:hover .tooltip,
 #footer .social-links .linkedin:hover .tooltip::before {
-  background: #0077b5;
+  background: #0075b5;
   color: #fff;
 }
 
