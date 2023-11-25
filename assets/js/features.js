@@ -101,19 +101,11 @@ const sentMessage = document.querySelector('.sent-message');
 contactForm.addEventListener('submit', function (event) {
     event.preventDefault();
 
-    const recaptchaResponse = document.getElementById('g-recaptcha-response').value;
-    
-    if (!recaptchaResponse) {
-        errorMessage.textContent = 'Please complete the reCAPTCHA.';
-        errorMessage.style.display = 'block';
-        return;
-    }
-
     loadingMessage.style.display = 'block'; // Show loading message
 
     const formData = new FormData(this);
     const data = Object.fromEntries(formData);
-    data.gCaptchaResponse = recaptchaResponse;
+    data.gCaptchaResponse = document.getElementById('g-recaptcha-response').value;
 
     fetch(url, {
         method: 'POST',
@@ -128,6 +120,7 @@ contactForm.addEventListener('submit', function (event) {
         contactForm.reset();
         loadingMessage.style.display = 'none'; // Hide loading message
         sentMessage.style.display = 'block'; // Show success message
+        errorMessage.style.display = 'none'; // Hide error message
         setTimeout(function () {
             sentMessage.style.display = 'none'; // Hide success message after a few seconds
         }, 5000);
@@ -136,5 +129,6 @@ contactForm.addEventListener('submit', function (event) {
         console.log('err', err);
         loadingMessage.style.display = 'none'; // Hide loading message
         errorMessage.style.display = 'block'; // Show error message
+        sentMessage.style.display = 'none'; // Hide success message
     });
 });
