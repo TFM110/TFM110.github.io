@@ -92,51 +92,41 @@ function showSlides(n) {
 /**
  * Contact Form
  */
-const siteKey = '6LcW_xspAAAAAK4bMzJ8aJi6PhMzQvHZ8QqOE5gU';
 const url = 'https://script.google.com/macros/s/AKfycbyAQDr_PwlWDI_6sGqiTNkdc0T4BX8AWeLmCOtf3Iv-f9WlYh4m2XodInEuF42yutvcBQ/exec';
 const contactForm = document.getElementById('contact-form');
 const loadingMessage = document.querySelector('.loading');
 const errorMessage = document.querySelector('.error-message');
 const sentMessage = document.querySelector('.sent-message');
-
-function handleSubmit(event) {
+  
+contactForm.addEventListener('submit', function (event) {
     event.preventDefault();
-
+  
     loadingMessage.style.display = 'block'; // Show loading message
-
-    // Get reCAPTCHA token
-    grecaptcha.ready(function () {
-        grecaptcha.execute(siteKey, { action: 'submit' }).then(function (token) {
-            const formData = new FormData(contactForm);
-            const data = Object.fromEntries(formData);
-
-            // Add reCAPTCHA token to form data
-            data.gCaptchaResponse = token;
-
-            fetch(url, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'text/plain;charset=utf-8',
-                },
-                body: JSON.stringify(data),
-            })
-                .then((res) => res.json())
-                .then((data) => {
-                    console.log('Successful', data);
-                    contactForm.reset();
-                    loadingMessage.style.display = 'none'; // Hide loading message
-                    sentMessage.style.display = 'block'; // Show success message
-                    setTimeout(function () {
-                        sentMessage.style.display = 'none'; // Hide success message after a few seconds
-                    }, 5000);
-                })
-                .catch((err) => {
-                    console.log('err', err);
-                    loadingMessage.style.display = 'none'; // Hide loading message
-                    errorMessage.style.display = 'block'; // Show error message
-                });
-        });
+  
+    const formData = new FormData(this);
+    const data = Object.fromEntries(formData);
+  
+    fetch(url, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'text/plain;charset=utf-8',
+        },
+        body: JSON.stringify(data),
+        gCaptchaResponse: document.getElementById('g-recaptcha-response').value,
+    })
+    .then((res) => res.json())
+    .then((data) => {
+        console.log('Successful', data);
+        this.reset();
+        loadingMessage.style.display = 'none'; // Hide loading message
+        sentMessage.style.display = 'block'; // Show success message
+        setTimeout(function () {
+            sentMessage.style.display = 'none'; // Hide success message after a few seconds
+        }, 5000);
+    })
+    .catch((err) => {
+        console.log('err', err);
+        loadingMessage.style.display = 'none'; // Hide loading message
+        errorMessage.style.display = 'block'; // Show error message
     });
-}
-
-document.getElementById('contact-form').addEventListener('submit', handleSubmit);
+});
