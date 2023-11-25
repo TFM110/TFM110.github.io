@@ -101,11 +101,20 @@ const sentMessage = document.querySelector('.sent-message');
 contactForm.addEventListener('submit', function (event) {
     event.preventDefault();
 
+    const recaptchaResponse = document.getElementById('g-recaptcha-response').value;
+
+    if (!recaptchaResponse) {
+        errorMessage.style.display = 'block';
+        loadingMessage.style.display = 'none'; // Hide loading message
+        sentMessage.style.display = 'none'; // Hide success message
+        return;
+    }
+
     loadingMessage.style.display = 'block'; // Show loading message
 
     const formData = new FormData(this);
     const data = Object.fromEntries(formData);
-    data.gCaptchaResponse = document.getElementById('g-recaptcha-response').value;
+    data.gCaptchaResponse = recaptchaResponse;
 
     fetch(url, {
         method: 'POST',
