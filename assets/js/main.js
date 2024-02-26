@@ -129,77 +129,84 @@
   });
 
   /**
-  * Preloader
-  */
-  let preloader = select('#preloader');
-  if (preloader) {
-    window.addEventListener('load', () => {
-      setTimeout(() => {
-        preloader.remove();
+* Preloader, Typing Effect, and Synchronized Countdown
+*/
+let preloader = select('#preloader');
+if (preloader) {
+  window.addEventListener('load', () => {
+    setTimeout(() => {
+      preloader.remove();
 
-        /**
-        * Home Type Effect
-        */
-        const typed = select('.typed');
-        if (typed) {
-          let typed_strings = typed.getAttribute('data-typed-items');
-          typed_strings = typed_strings.split(',');
+      const typed = select('.typed');
+      if (typed) {
+        let typed_strings = typed.getAttribute('data-typed-items');
+        typed_strings = typed_strings.split(',');
 
-          // Add class to body while typing is in progress
-          document.body.classList.add('typing-in-progress');
+        // Calculate the approximate duration of the typing animation
+        // Assume each character takes roughly 75ms to type, plus a fixed 1500ms backDelay for each string
+        let totalAnimationTime = typed_strings.reduce((acc, str) => acc + (str.length * 75) + 1500, 0);
+        let countdownSeconds = Math.ceil(totalAnimationTime / 1000) + 2;
 
-          let notificationShown = false;
+        // Start countdown immediately, adjusting its duration to match the typing animation
+        startCountdown(countdownSeconds, () => {
+          showNotification("You can now scroll!");
+          document.body.classList.add('typing-complete');
+          window.addEventListener('scroll', hideNotification);
+        });
 
-          const typedInstance = new Typed('.typed', {
-            strings: typed_strings,
-            typeSpeed: 75,
-            backSpeed: 40,
-            backDelay: 1500,
-            onComplete: function (self) {
-              // Remove class when typing is complete
-              document.body.classList.remove('typing-in-progress');
-              // Add class to indicate typing is complete
-              document.body.classList.add('typing-complete');
+        document.body.classList.add('typing-in-progress');
 
-              // Enable looping after the first round
-              self.loop = true;
+        new Typed('.typed', {
+          strings: typed_strings,
+          typeSpeed: 75,
+          backSpeed: 40,
+          backDelay: 1500,
+          onComplete: function () {
+            // The countdown's completion handles showing the scroll notification
+          },
+        });
+      }
+    }, 750); // Adjust as needed
+  });
+}
 
-              // Show the notification only once
-              if (!notificationShown) {
-                showNotification();
-                notificationShown = true;
-              }
+function startCountdown(seconds, onComplete) {
+  let countdown = seconds;
+  updateNotification(`You can scroll in ${countdown} seconds...`); // Initial update
+  const interval = setInterval(() => {
+    countdown--;
+    updateNotification(`You can scroll in ${countdown} seconds...`);
 
-              // Add event listener for scrolling to hide the notification
-              window.addEventListener('scroll', hideNotification);
-            },
-          });
-        }
-      }, 750); // Adjust the delay time (in milliseconds) as needed
-    });
-  }
+    if (countdown <= 0) {
+      clearInterval(interval);
+      onComplete(); // Call onComplete after countdown
+    }
+  }, 1000);
+}
 
-  function showNotification() {
-    const notification = select('#notification');
-    if (notification) {
+function updateNotification(message) {
+  const notification = select('#notification');
+  if (notification) {
+    notification.textContent = message;
+    if (notification.style.display !== 'block') {
       notification.style.display = 'block';
-      setTimeout(() => {
-        notification.style.opacity = '1';
-      }, 100);
+      setTimeout(() => notification.style.opacity = '1', 100);
     }
   }
+}
 
-  function hideNotification() {
-    const notification = select('#notification');
-    if (notification && window.scrollY > 0) {
-      notification.style.opacity = '0';
-      setTimeout(() => {
-        notification.style.display = 'none';
-      }, 500);
-      // Remove the scroll event listener once the notification is hidden
-      window.removeEventListener('scroll', hideNotification);
-    }
+function showNotification(message) {
+  updateNotification(message); // Reuse update logic for final message
+}
+
+function hideNotification() {
+  const notification = select('#notification');
+  if (notification && window.scrollY > 0) {
+    notification.style.opacity = '0';
+    setTimeout(() => notification.style.display = 'none', 500);
+    window.removeEventListener('scroll', hideNotification);
   }
+}
 
   /**
    * Skills animation
