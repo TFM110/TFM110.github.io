@@ -129,12 +129,10 @@
   });
 
   /**
-  * Preloader, Typing Effect, and Synchronized Countdown with First-Run Flag
+  * Preloader, Typing Effect, and Synchronized Countdown
   */
   let preloader = select('#preloader');
-  const hasPreloaderRun = localStorage.getItem('preloaderRun');
-
-  if (!hasPreloaderRun && preloader) {
+  if (preloader) {
     window.addEventListener('load', () => {
       setTimeout(() => {
         preloader.remove();
@@ -145,6 +143,7 @@
           typed_strings = typed_strings.split(',');
 
           // Calculate the approximate duration of the typing animation
+          // Assume each character takes roughly 75ms to type, plus a fixed 1500ms backDelay for each string
           let totalAnimationTime = typed_strings.reduce((acc, str) => acc + (str.length * 75) + 1500, 0);
           let countdownSeconds = Math.ceil(totalAnimationTime / 1000) + 2;
 
@@ -167,17 +166,8 @@
             },
           });
         }
-
-        // Mark the preloader as having run by saving a flag in localStorage
-        localStorage.setItem('preloaderRun', 'true');
-
       }, 750); // Adjust as needed
-   });
-  } else {
-    // If the preloader has already run, just show the notification that scrolling is allowed
-    showNotification("You can now scroll!");
-    document.body.classList.add('typing-complete');
-    window.addEventListener('scroll', hideNotification);
+    });
   }
 
   function startCountdown(seconds, onComplete) {
