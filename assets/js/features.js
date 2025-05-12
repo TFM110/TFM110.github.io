@@ -105,3 +105,24 @@ contactForm.addEventListener('submit', function (event) {
     sentMessage.style.display = 'none'; // Hide success message
   });
 });
+
+async function fetchLastUpdated() {
+  const apiUrl = "https://api.github.com/repos/TFM110/TFM110.github.io/commits";
+  try {
+    const response = await fetch(apiUrl);
+    const commits = await response.json();
+    if (commits && commits.length > 0) {
+      // Get the latest commit date
+      const lastCommitDate = new Date(commits[0].commit.committer.date);
+      document.getElementById("updated-date").textContent = lastCommitDate.toLocaleString();
+    } else {
+      document.getElementById("updated-date").textContent = "No commits found.";
+    }
+  } catch (error) {
+    console.error("Error fetching last updated date:", error);
+    document.getElementById("updated-date").textContent = "Error fetching data.";
+  }
+}
+
+// Call the function on page load
+fetchLastUpdated();
