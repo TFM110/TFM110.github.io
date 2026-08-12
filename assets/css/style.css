@@ -775,10 +775,6 @@ section {
   color: #fff;
 }
 
-.contact .home {}
-
-.contact .school {}
-
 .contact .email-form {
   width: 100%;
   background: #fff;
@@ -900,7 +896,7 @@ section {
 }
 
 #footer p {
-  font-size: 15;
+  font-size: 15px;
   font-style: italic;
   padding: 0;
   margin: 0 0 40px 0;
@@ -914,31 +910,23 @@ section {
 }
 
 #footer .social-links a {
-  font-size: 18px;
-  display: inline-block;
-  border-radius: 50%;
-  width: 36px;
-  height: 36px;
-  padding: 8px 0;
-  margin-right: 4px;
-  text-align: center;
-  line-height: 1;
-  transition: 0.3s;
   position: relative;
-  background: #0563bb;
-  border-radius: 50%;
-  padding: 15px;
-  margin: 10px;
-  width: 50px;
-  height: 50px;
-  font-size: 1.1rem;
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-direction: column;
-  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
-  cursor: pointer;
+  width: 50px;
+  height: 50px;
+  margin: 10px;
+  padding: 15px;
+  border-radius: 50%;
+  background: #0563bb;
   color: #fff;
+  font-size: 1.1rem;
+  line-height: 1;
+  text-align: center;
+  text-decoration: none;
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+  transition: 0.3s;
 }
 
 
