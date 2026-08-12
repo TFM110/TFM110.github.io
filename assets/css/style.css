@@ -507,6 +507,29 @@ section {
 }
 
 /*--------------------------------------------------------------
+# Skills
+--------------------------------------------------------------*/
+.skills .skills-content h4 {
+	font-size: 26px;
+	font-weight: 600;
+	margin-bottom: 15px;
+	color: #45505b;
+}
+
+.skills .skills-content ul {
+	padding-left: 20px;
+	margin-bottom: 0;
+}
+
+.skills .skills-content ul li {
+	padding-bottom: 5px;
+}
+
+.skills .skills-content ul li:last-child {
+	padding-bottom: 0;
+}
+
+/*--------------------------------------------------------------
 # Work
 --------------------------------------------------------------*/
 .work .work-item {
