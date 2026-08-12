@@ -3,9 +3,7 @@
 
   const select = (selector, all = false) => {
     selector = selector.trim();
-    return all
-      ? [...document.querySelectorAll(selector)]
-      : document.querySelector(selector);
+    return all ? [...document.querySelectorAll(selector)] : document.querySelector(selector);
   };
 
   const on = (type, selector, listener, all = false) => {
@@ -13,7 +11,7 @@
     if (!elements) return;
 
     if (all) {
-      elements.forEach((element) => element.addEventListener(type, listener));
+      elements.forEach(element => element.addEventListener(type, listener));
     } else {
       elements.addEventListener(type, listener);
     }
@@ -22,9 +20,9 @@
   const navbarLinks = select("#navbar .scrollto", true);
 
   const navbarLinksActive = () => {
-    const position = window.scrollY + 200;
+  const position = window.scrollY + 200;
 
-    navbarLinks.forEach((navbarLink) => {
+    navbarLinks.forEach(navbarLink => {
       if (!navbarLink.hash) return;
 
       const section = select(navbarLink.hash);
@@ -41,14 +39,28 @@
     });
   };
 
-  const scrollToSection = (selector) => {
+  const scrollToSection = selector => {
     const section = select(selector);
     if (!section) return;
 
     window.scrollTo({
       top: section.offsetTop,
-      behavior: "smooth",
+      behavior: "smooth"
     });
+  };
+
+  const closeMobileNav = () => {
+    document.body.classList.remove("mobile-nav-active");
+
+    const toggle = select(".mobile-nav-toggle");
+    const icon = toggle ? toggle.querySelector("i") : null;
+
+    if (toggle) toggle.setAttribute("aria-expanded", "false");
+
+    if (icon) {
+      icon.classList.remove("bi-x");
+      icon.classList.add("bi-list");
+    }
   };
 
   window.addEventListener("load", navbarLinksActive);
@@ -66,33 +78,28 @@
   }
 
   on("click", ".mobile-nav-toggle", function () {
-    document.body.classList.toggle("mobile-nav-active");
-    this.classList.toggle("bi-list");
-    this.classList.toggle("bi-x");
+    const isActive = document.body.classList.toggle("mobile-nav-active");
+    const icon = this.querySelector("i");
+
+    this.setAttribute("aria-expanded", String(isActive));
+
+    if (icon) {
+      icon.classList.toggle("bi-list", !isActive);
+      icon.classList.toggle("bi-x", isActive);
+    }
   });
 
-  on(
-    "click",
-    ".scrollto",
-    function (event) {
-      if (!select(this.hash)) return;
+  on("click", ".scrollto", function (event) {
+    if (!select(this.hash)) return;
 
-      event.preventDefault();
+    event.preventDefault();
 
-      if (document.body.classList.contains("mobile-nav-active")) {
-        document.body.classList.remove("mobile-nav-active");
+    if (document.body.classList.contains("mobile-nav-active")) {
+      closeMobileNav();
+    }
 
-        const navbarToggle = select(".mobile-nav-toggle");
-        if (navbarToggle) {
-          navbarToggle.classList.toggle("bi-list");
-          navbarToggle.classList.toggle("bi-x");
-        }
-      }
-
-      scrollToSection(this.hash);
-    },
-    true
-  );
+    scrollToSection(this.hash);
+  }, true);
 
   window.addEventListener("load", () => {
     if (window.location.hash && select(window.location.hash)) {
@@ -114,7 +121,7 @@
           typeSpeed: 75,
           backSpeed: 40,
           backDelay: 1500,
-          startDelay: 500,
+          startDelay: 500
         });
       }
     }
@@ -124,7 +131,7 @@
         duration: 1000,
         easing: "ease-in-out",
         once: true,
-        mirror: false,
+        mirror: false
       });
     }
   });
