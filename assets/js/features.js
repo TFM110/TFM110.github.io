@@ -1,128 +1,151 @@
 /**
- * Auto Location and Display time
- */
-function display_datetime() {
-  var x = new Date();
+* Live Date and Time
+*/
+function displayDateTime() {
+  const now = new Date();
   const week = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
-  let dayDisplay = week[x.getDay()];
   const month = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
-  let monthDisplay = month[x.getMonth()];
-  let day = x.getDate();
-  let year = x.getFullYear();
-  let time = x.toLocaleTimeString();
-  var zone = new Date().toLocaleTimeString('en-us', { timeZoneName: 'short' }).split(' ')[2];
-  datetimeDisplay = dayDisplay + ", " + monthDisplay + " " + day + ", " + year + "<br>" + time + " " + zone;
-  document.getElementById("datetime").innerHTML = datetimeDisplay;
-  display_dt();
-}
-  
-function display_dt() {
-  var refresh = 1000; // Refresh rate in milliseconds
-  mytime = setTimeout(display_datetime, refresh);
-}
-  
-display_dt();
-  
-function hideElementsBasedOnDate() {
-  currentMonth = new Date().getMonth();
-  currentDay = new Date().getDate();
+  const datetime = document.getElementById("datetime");
 
-  var home = document.getElementsByClassName("home");
-  var school = document.getElementsByClassName("school");
-  if (currentMonth > 3 && currentMonth < 8) {
-    for (var i = 0; i < school.length; i++) {
-      school[i].style.display = "none";
-    }
-  } else {
-    for (var i = 0; i < home.length; i++) {
-      home[i].style.display = "none";
-    }
-  }
+  if (!datetime) return;
 
-  var dob = new Date("2/28/2003");
-  var month_diff = Date.now() - dob.getTime();
-  var age_dt = new Date(month_diff);
-  var year = age_dt.getUTCFullYear();
-  var age = Math.abs(year - 1970);
-  if (currentMonth === 1 && currentDay === 28) {
-    document.getElementById("dob").innerHTML = "Happy Birthday Tauseef! " + "<br>" + "You are now " + age + " years old!";
-  } else {
-    document.getElementById("dob").innerHTML = age;
-  }
+  const dayDisplay = week[now.getDay()];
+  const monthDisplay = month[now.getMonth()];
+  const day = now.getDate();
+  const year = now.getFullYear();
+  const time = now.toLocaleTimeString();
+  const zone = now.toLocaleTimeString("en-US", { timeZoneName: "short" }).split(" ").pop();
+
+  datetime.innerHTML = `${dayDisplay}, ${monthDisplay} ${day}, ${year}<br>${time} ${zone}`;
 }
-  
-hideElementsBasedOnDate();
-  
+
+displayDateTime();
+setInterval(displayDateTime, 1000);
+
 /**
- * Contact Form
- */
-const url = 'https://script.google.com/macros/s/AKfycbyAQDr_PwlWDI_6sGqiTNkdc0T4BX8AWeLmCOtf3Iv-f9WlYh4m2XodInEuF42yutvcBQ/exec';
-const contactForm = document.getElementById('contact-form');
-const loadingMessage = document.querySelector('.loading');
-const errorMessage = document.querySelector('.error-message');
-const sentMessage = document.querySelector('.sent-message');
+* Age and Birthday
+*/
+function displayAge() {
+  const dobElement = document.getElementById("dob");
+  if (!dobElement) return;
 
-contactForm.addEventListener('submit', function (event) {
-  event.preventDefault();
+  const today = new Date();
+  const birthDate = new Date(2003, 1, 28);
+  let age = today.getFullYear() - birthDate.getFullYear();
 
-  const recaptchaResponse = document.getElementById('g-recaptcha-response').value;
+  const birthdayPassed =
+  today.getMonth() > birthDate.getMonth() ||
+  (today.getMonth() === birthDate.getMonth() && today.getDate() >= birthDate.getDate());
 
-  if (!recaptchaResponse) {
-    errorMessage.style.display = 'block';
-    loadingMessage.style.display = 'none'; // Hide loading message
-    sentMessage.style.display = 'none'; // Hide success message
-    return;
-  }
+  if (!birthdayPassed) age--;
 
-  loadingMessage.style.display = 'block'; // Show loading message
+  if (today.getMonth() === 1 && today.getDate() === 28) {
+    dobElement.innerHTML = `Happy Birthday Tauseef!<br>You are now ${age} years old!`;
+    } else {
+      dobElement.textContent = age;
+    }
+}
 
-  const formData = new FormData(this);
-  const data = Object.fromEntries(formData);
-  data.gCaptchaResponse = recaptchaResponse;
+displayAge();
 
-  fetch(url, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'text/plain;charset=utf-8',
-    },
-    body: JSON.stringify(data),
-  })
-  .then((res) => res.json())
-  .then((data) => {
-    console.log('Successful', data);
-    contactForm.reset();
-    loadingMessage.style.display = 'none'; // Hide loading message
-    sentMessage.style.display = 'block'; // Show success message
-    errorMessage.style.display = 'none'; // Hide error message
-    setTimeout(function () {
-      sentMessage.style.display = 'none'; // Hide success message after a few seconds
-    }, 5000);
-  })
-  .catch((err) => {
-    console.log('err', err);
-    loadingMessage.style.display = 'none'; // Hide loading message
-    errorMessage.style.display = 'block'; // Show error message
-    sentMessage.style.display = 'none'; // Hide success message
+/**
+* Contact Form
+*/
+const url = "https://script.google.com/macros/s/AKfycbyAQDr_PwlWDI_6sGqiTNkdc0T4BX8AWeLmCOtf3Iv-f9WlYh4m2XodInEuF42yutvcBQ/exec";
+const contactForm = document.getElementById("contact-form");
+const loadingMessage = document.querySelector(".loading");
+const errorMessage = document.querySelector(".error-message");
+const sentMessage = document.querySelector(".sent-message");
+
+if (contactForm) {
+  contactForm.addEventListener("submit", function(event) {
+    event.preventDefault();
+
+    const recaptcha = document.getElementById("g-recaptcha-response");
+    const recaptchaResponse = recaptcha ? recaptcha.value : "";
+
+    if (!recaptchaResponse) {
+      if (errorMessage) errorMessage.style.display = "block";
+      if (loadingMessage) loadingMessage.style.display = "none";
+      if (sentMessage) sentMessage.style.display = "none";
+      return;
+    }
+
+    if (loadingMessage) loadingMessage.style.display = "block";
+    if (errorMessage) errorMessage.style.display = "none";
+    if (sentMessage) sentMessage.style.display = "none";
+
+    const formData = new FormData(this);
+    const data = Object.fromEntries(formData);
+    data.gCaptchaResponse = recaptchaResponse;
+
+    fetch(url, {
+      method: "POST",
+      headers: {
+        "Content-Type": "text/plain;charset=utf-8"
+      },
+      body: JSON.stringify(data)
+    })
+    .then(response => {
+      if (!response.ok) throw new Error(`Form request failed with status ${response.status}`);
+      return response.json();
+    })
+    .then(data => {
+      console.log("Successful", data);
+      contactForm.reset();
+
+      if (typeof grecaptcha !== "undefined") grecaptcha.reset();
+
+      if (loadingMessage) loadingMessage.style.display = "none";
+      if (errorMessage) errorMessage.style.display = "none";
+      if (sentMessage) sentMessage.style.display = "block";
+
+      setTimeout(() => {
+        if (sentMessage) sentMessage.style.display = "none";
+      }, 5000);
+    })
+    .catch(error => {
+      console.error("Contact form error:", error);
+
+      if (loadingMessage) loadingMessage.style.display = "none";
+      if (errorMessage) errorMessage.style.display = "block";
+      if (sentMessage) sentMessage.style.display = "none";
+    });
   });
-});
+}
 
+/**
+* Last Updated
+*/
 async function fetchLastUpdated() {
-  const apiUrl = "https://api.github.com/repos/TFM110/TFM110.github.io/commits";
+  const updatedDate = document.getElementById("updated-date");
+  if (!updatedDate) return;
+
+  const apiUrl = "https://api.github.com/repos/TFM110/TFM110.github.io/commits?per_page=1";
+
   try {
     const response = await fetch(apiUrl);
+    if (!response.ok) throw new Error(`GitHub API returned ${response.status}`);
+
     const commits = await response.json();
-    if (commits && commits.length > 0) {
-      // Get the latest commit date
+
+    if (commits.length > 0) {
       const lastCommitDate = new Date(commits[0].commit.committer.date);
-      document.getElementById("updated-date").textContent = lastCommitDate.toLocaleString();
+
+      updatedDate.textContent = lastCommitDate.toLocaleString(undefined, {
+        year: "numeric",
+        month: "long",
+        day: "numeric",
+        hour: "numeric",
+        minute: "2-digit"
+      });
     } else {
-      document.getElementById("updated-date").textContent = "No commits found.";
+      updatedDate.textContent = "No commits found.";
     }
   } catch (error) {
     console.error("Error fetching last updated date:", error);
-    document.getElementById("updated-date").textContent = "Error fetching data.";
+    updatedDate.textContent = "Unable to retrieve update date.";
   }
 }
 
-// Call the function on page load
 fetchLastUpdated();
